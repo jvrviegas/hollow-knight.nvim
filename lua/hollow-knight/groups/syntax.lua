@@ -83,6 +83,12 @@ function M.setup(colors)
     ['@note'] = { fg = colors.soul_blue },
     ['@warning'] = { fg = colors.infection_orange },
     ['@danger'] = { fg = colors.blood_red },
+
+    -- JSX/React focused highlighting for component vs props clarity
+    ['@constructor'] = { fg = colors.radiance_gold, bold = true }, -- React components (PascalCase)
+    ['@tag'] = { fg = colors.crystal_blue }, -- HTML tags (lowercase)
+    ['@tag.attribute'] = { fg = colors.lumafly_green, italic = true }, -- JSX props/attributes
+    ['@tag.delimiter'] = { fg = colors.pale_white }, -- JSX angle brackets
   }
 end
 
