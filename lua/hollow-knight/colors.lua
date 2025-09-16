@@ -37,79 +37,79 @@ local function fade(hex, alpha)
   end
   -- This would typically be used with a compositor
   -- For now, we blend with the background
-  return blend(hex, '#0a0a0f', 1 - alpha)
+  return blend(hex, '#0d0d14', 1 - alpha)
 end
 
--- Hallownest's Core Palette
+-- Hallownest's Core Palette - Enhanced for better contrast and readability
 M.palette = {
-  -- The Abyss - Deepest darkness
+  -- The Abyss - Deepest darkness (improved background separation)
   abyss = {
-    void = '#0a0a0f',
-    deep = '#1a1a24',
-    shadow = '#2a2a3a',
+    void = '#0d0d14',
+    deep = '#1c1c28',
+    shadow = '#2d2d42',
   },
 
-  -- The White Palace - Pure essence
+  -- The White Palace - Pure essence (enhanced text contrast)
   palace = {
-    soul = '#e8e8f0',
-    pale = '#c8c8d8',
-    ghost = '#a8a8c0',
+    soul = '#f0f0f8',
+    pale = '#d5d5e5',
+    ghost = '#b5b5d0',
     silver = '#9898b0',
   },
 
-  -- Soul and Dreams - Mystical blues
+  -- Soul and Dreams - Mystical blues (more vibrant)
   soul = {
-    bright = '#7fb3d3',
-    dream = '#5a9fd4',
-    pale = '#4a8bc2',
-    crystal = '#6bb6ff',
+    bright = '#85c1e9',
+    dream = '#6bb6ff',
+    pale = '#5da3d4',
+    crystal = '#7ac3ff',
     essence = '#87ceeb',
   },
 
-  -- Greenpath - Life and nature
+  -- Greenpath - Life and nature (enhanced greens)
   greenpath = {
-    lumafly = '#7dd3c0',
-    moss = '#4a9d88',
-    acid = '#3d8b5f',
+    lumafly = '#8ae6d0',
+    moss = '#5cb3a0',
+    acid = '#4fa370',
     vine = '#2d6b4f',
   },
 
-  -- City of Tears - Ancient gold
+  -- City of Tears - Ancient gold (unchanged - already good)
   city = {
     geo = '#ffd700',
-    gold = '#ffb347',
-    pale_gold = '#e6a534',
+    gold = '#ffcc5c',
+    pale_gold = '#f4c542',
     brass = '#b8860b',
   },
 
-  -- The Infection - Orange corruption
+  -- The Infection - Orange corruption (improved contrast)
   infection = {
-    bright = '#ff9500',
+    bright = '#ffa726',
     glow = '#ff7f00',
     deep = '#cc7700',
-    radiance = '#ffb347',
+    radiance = '#ffcc5c',
   },
 
-  -- Combat - Reds of battle
+  -- Combat - Reds of battle (enhanced reds)
   combat = {
-    nail = '#d73027',
-    blood = '#b71c1c',
-    crimson = '#8b0000',
+    nail = '#e74c3c',
+    blood = '#c62828',
+    crimson = '#a91e2c',
     shade = '#660000',
   },
 
-  -- The Void - Purples of emptiness
+  -- The Void - Purples of emptiness (improved purples)
   void = {
-    bright = '#6a4c93',
-    deep = '#5a3d7a',
-    grimm = '#8b1538',
+    bright = '#7b68ee',
+    deep = '#6a5acd',
+    grimm = '#9b1c47',
     shadow = '#4a2c5a',
   },
 
-  -- UI Elements
+  -- UI Elements (better neutrals)
   ui = {
-    mask = '#666677',
-    bench = '#4a3c28',
+    mask = '#7a7a8f',
+    bench = '#5c4a35',
     stone = '#5a5a6a',
     metal = '#7a7a8a',
   },
