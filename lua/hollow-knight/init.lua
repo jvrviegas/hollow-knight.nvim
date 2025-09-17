@@ -36,6 +36,7 @@ local default_config = {
     ui = true,    -- WhichKey, Bufferline, Alpha, etc.
     git = true,   -- GitSigns and git integration
     barbecue = true,
+    avante = true, -- Avante.nvim AI copilot
     terminal = true,
   }
 }
@@ -107,6 +108,11 @@ function M.setup(opts)
   if opts.plugins.barbecue and (has_plugin('barbecue') or opts.plugins.barbecue == 'force') then
     local barbecue_highlights = require('hollow-knight.groups.plugins.barbecue').setup(colors)
     plugin_highlights = merge_highlights(plugin_highlights, barbecue_highlights)
+  end
+
+  if opts.plugins.avante and (has_plugin('avante') or opts.plugins.avante == 'force') then
+    local avante_highlights = require('hollow-knight.groups.plugins.avante').setup(colors, should_clear_bg)
+    plugin_highlights = merge_highlights(plugin_highlights, avante_highlights)
   end
 
   -- Combine all highlights
