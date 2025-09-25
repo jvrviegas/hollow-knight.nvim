@@ -41,7 +41,7 @@ function M.setup(colors)
     -- Treesitter highlights - Modern Hallownest Magic (Enhanced readability)
     ['@variable'] = { fg = colors.soul_white },
     ['@variable.builtin'] = { fg = colors.soul_blue, italic = true }, -- Distinguished from regular variables
-    ['@property'] = { fg = colors.crystal_blue }, -- More distinct, brighter blue
+    ['@property'] = { fg = colors.lumafly_green }, -- Interface/object properties in green
     ['@function'] = { fg = colors.geo_yellow, bold = true },
     ['@function.builtin'] = { fg = colors.radiance_gold, italic = true }, -- Distinguished from user functions
     ['@method'] = { fg = colors.lumafly_green, bold = true }, -- More prominent
@@ -64,7 +64,7 @@ function M.setup(colors)
     ['@constant.builtin'] = { fg = colors.dream_blue, italic = true },
     ['@constant.macro'] = { fg = colors.infection_orange, italic = true },
     ['@operator'] = { fg = colors.pale_white, bold = true },
-    ['@field'] = { fg = colors.pale_blue },
+    ['@field'] = { fg = colors.lumafly_green }, -- Object fields/properties
     ['@parameter'] = { fg = colors.ghost_white, italic = true },
     ['@namespace'] = { fg = colors.dream_blue },
     ['@symbol'] = { fg = colors.crystal_blue },
@@ -84,11 +84,70 @@ function M.setup(colors)
     ['@warning'] = { fg = colors.infection_orange },
     ['@danger'] = { fg = colors.blood_red },
 
-    -- JSX/React focused highlighting for component vs props clarity
-    ['@constructor'] = { fg = colors.radiance_gold, bold = true }, -- React components (PascalCase)
-    ['@tag'] = { fg = colors.crystal_blue }, -- HTML tags (lowercase)
-    ['@tag.attribute'] = { fg = colors.lumafly_green, italic = true }, -- JSX props/attributes
-    ['@tag.delimiter'] = { fg = colors.pale_white }, -- JSX angle brackets
+    -- Enhanced JavaScript/TypeScript/JSX/TSX highlighting
+    -- Template strings and interpolation (enhanced for template literals)
+    ['@string.template'] = { fg = colors.moss_green, italic = true },
+    ['@punctuation.special'] = { fg = colors.radiance_gold, bold = true }, -- Template literal ${...}
+
+    -- JSX/React specific enhancements
+    ['@tag'] = { fg = colors.crystal_blue }, -- HTML-like tags in JSX
+    ['@tag.attribute'] = { fg = colors.lumafly_green, italic = true }, -- JSX attributes/props
+    ['@tag.delimiter'] = { fg = colors.pale_white }, -- JSX angle brackets < >
+
+    -- Better function call highlighting (for React hooks and JavaScript methods)
+    ['@function.call'] = { fg = colors.geo_yellow },
+
+    -- Import/Export enhancements
+    ['@keyword.import'] = { fg = colors.crystal_blue, italic = true },
+    ['@keyword.export'] = { fg = colors.infection_orange, italic = true },
+
+    -- Object method highlighting
+    ['@method.call'] = { fg = colors.lumafly_green },
+
+    -- Variable member access (for object.property syntax)
+    ['@variable.member'] = { fg = colors.crystal_blue },
+
+    -- Enhanced conditional and control flow
+    ['@keyword.conditional'] = { fg = colors.void_purple, italic = true },
+    ['@keyword.repeat'] = { fg = colors.void_purple, italic = true },
+
+    -- TypeScript-specific type annotations and interface improvements
+    ['@type.qualifier'] = { fg = colors.dream_blue, italic = true }, -- readonly, public, etc.
+    ['@type.definition'] = { fg = colors.crystal_blue, bold = true }, -- interface, type definitions
+
+    -- Enhanced TypeScript interface and object type highlighting
+    ['@property.typescript'] = { fg = colors.lumafly_green }, -- Interface property names
+    ['@property.tsx'] = { fg = colors.lumafly_green }, -- TSX interface property names
+    ['@type.typescript'] = { fg = colors.soul_blue, bold = true }, -- Type annotations
+    ['@type.tsx'] = { fg = colors.soul_blue, bold = true }, -- TSX type annotations
+    ['@type.builtin.typescript'] = { fg = colors.pale_blue, italic = true }, -- Built-in types (string, number, etc.)
+    ['@type.builtin.tsx'] = { fg = colors.pale_blue, italic = true },
+
+    -- Optional and union type operators
+    ['@operator.type'] = { fg = colors.infection_orange, bold = true }, -- ? : | & operators in types
+    ['@punctuation.delimiter.typescript'] = { fg = colors.pale_white }, -- : ; , in interfaces
+    ['@punctuation.delimiter.tsx'] = { fg = colors.pale_white },
+
+    -- Decorators (TypeScript/experimental JavaScript)
+    ['@attribute'] = { fg = colors.infection_orange, italic = true }, -- @decorator
+
+    -- Module/namespace keywords
+    ['@keyword.storage'] = { fg = colors.shade_purple, bold = true }, -- const, let, var
+    ['@keyword.modifier'] = { fg = colors.dream_blue, italic = true }, -- async, static, etc.
+
+    -- Enhanced constants and special values
+    ['@constant.builtin'] = { fg = colors.dream_blue, italic = true }, -- true, false, null, undefined
+
+    -- JavaScript/TypeScript specific literals and values
+    ['@string.regex'] = { fg = colors.infection_orange, italic = true }, -- Regular expressions
+    ['@number.float'] = { fg = colors.radiance_gold }, -- Float numbers
+
+    -- Enhanced error/exception handling
+    ['@keyword.exception'] = { fg = colors.nail_red, bold = true }, -- try, catch, throw
+
+    -- JSX expression braces highlighting
+    ['@punctuation.bracket.jsx'] = { fg = colors.geo_yellow, bold = true },
+    ['@punctuation.bracket.tsx'] = { fg = colors.geo_yellow, bold = true },
   }
 end
 
