@@ -57,52 +57,52 @@ M.palette = {
     silver = '#9898b0',
   },
 
-  -- Soul and Dreams - Mystical blues (more vibrant)
+  -- Soul and Dreams - Mystical blues (softer for dark environments)
   soul = {
-    bright = '#85c1e9',
-    dream = '#6bb6ff',
-    pale = '#5da3d4',
-    crystal = '#7ac3ff',
-    essence = '#87ceeb',
+    bright = '#7bb3d9',
+    dream = '#6ba6df',
+    pale = '#5d93c4',
+    crystal = '#69a8cf',
+    essence = '#77b8db',
   },
 
-  -- Greenpath - Life and nature (enhanced greens)
+  -- Greenpath - Life and nature (muted greens)
   greenpath = {
-    lumafly = '#8ae6d0',
-    moss = '#5cb3a0',
-    acid = '#4fa370',
+    lumafly = '#7dd6c0',
+    moss = '#52a390',
+    acid = '#459360',
     vine = '#2d6b4f',
   },
 
-  -- City of Tears - Ancient gold (unchanged - already good)
+  -- City of Tears - Ancient gold (softer yellows)
   city = {
-    geo = '#ffd700',
-    gold = '#ffcc5c',
-    pale_gold = '#f4c542',
-    brass = '#b8860b',
+    geo = '#e6c547',
+    gold = '#d4b547',
+    pale_gold = '#c4a542',
+    brass = '#a8860b',
   },
 
-  -- The Infection - Orange corruption (improved contrast)
+  -- The Infection - Orange corruption (muted oranges)
   infection = {
-    bright = '#ffa726',
-    glow = '#ff7f00',
-    deep = '#cc7700',
-    radiance = '#ffcc5c',
+    bright = '#e6945c',
+    glow = '#d6845c',
+    deep = '#bc7700',
+    radiance = '#d4b547',
   },
 
-  -- Combat - Reds of battle (enhanced reds)
+  -- Combat - Reds of battle (softer reds)
   combat = {
-    nail = '#e74c3c',
-    blood = '#c62828',
-    crimson = '#a91e2c',
+    nail = '#d74c3c',
+    blood = '#b62828',
+    crimson = '#991e2c',
     shade = '#660000',
   },
 
-  -- The Void - Purples of emptiness (improved purples)
+  -- The Void - Purples of emptiness (muted purples)
   void = {
-    bright = '#7b68ee',
+    bright = '#8a7ccc',
     deep = '#6a5acd',
-    grimm = '#9b1c47',
+    grimm = '#8b1c47',
     shadow = '#4a2c5a',
   },
 
