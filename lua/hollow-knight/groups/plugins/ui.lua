@@ -6,41 +6,38 @@ local M = {}
 function M.setup(colors, should_clear_bg)
   return {
     -- WhichKey - Ancient Spells
-    WhichKey = { fg = colors.geo_yellow },
-    WhichKeyGroup = { fg = colors.soul_blue },
-    WhichKeyDesc = { fg = colors.soul_white },
-    WhichKeySeparator = { fg = colors.mask_gray },
-    WhichKeyFloat = { bg = colors.shadow_black },
+    WhichKey = { fg = colors.function_name },
+    WhichKeyGroup = { fg = colors.accent },
+    WhichKeyDesc = { fg = colors.fg },
+    WhichKeySeparator = { fg = colors.comment },
+    WhichKeyFloat = { bg = colors.bg_highlight },
 
     -- Bufferline - Soul Vessels
-    BufferLineFill = { bg = colors.void_black },
-    BufferLineBackground = { fg = colors.mask_gray, bg = colors.shadow_black },
-    BufferLineBuffer = { fg = colors.soul_white, bg = colors.pale_black },
-    BufferLineBufferSelected = { fg = colors.geo_yellow, bg = colors.void_black, bold = true },
-    BufferLineIndicatorSelected = { fg = colors.soul_blue },
+    BufferLineFill = { bg = colors.bg },
+    BufferLineBackground = { fg = colors.comment, bg = colors.bg_highlight },
+    BufferLineBuffer = { fg = colors.fg, bg = colors.bg_alt },
+    BufferLineBufferSelected = { fg = colors.function_name, bg = colors.bg, bold = true },
+    BufferLineIndicatorSelected = { fg = colors.accent },
 
-    -- Indent Blankline - Ancient Architecture
-    IndentBlanklineChar = { fg = colors.mask_gray },
-    IndentBlanklineContextChar = { fg = colors.soul_blue },
 
     -- Dashboard/Alpha - The Pale King's Throne
-    AlphaShortcut = { fg = colors.geo_yellow },
-    AlphaHeader = { fg = colors.soul_blue },
-    AlphaHeaderLabel = { fg = colors.radiance_gold },
-    AlphaButtons = { fg = colors.soul_white },
-    AlphaFooter = { fg = colors.mask_gray, italic = true },
+    AlphaShortcut = { fg = colors.function_name },
+    AlphaHeader = { fg = colors.accent },
+    AlphaHeaderLabel = { fg = colors.number },
+    AlphaButtons = { fg = colors.fg },
+    AlphaFooter = { fg = colors.comment, italic = true },
 
     -- Notifications and Noice - Ancient Messages
-    NotifyBackground = { bg = should_clear_bg('notify') and 'NONE' or colors.shadow_black },
-    NotifyERRORBorder = { fg = colors.blood_red },
-    NotifyWARNBorder = { fg = colors.infection_orange },
-    NotifyINFOBorder = { fg = colors.soul_blue },
-    NotifyDEBUGBorder = { fg = colors.mask_gray },
-    NotifyTRACEBorder = { fg = colors.ghost_white },
-    NoiceCmdlinePopup = { fg = colors.soul_white, bg = should_clear_bg('noice') and 'NONE' or colors.shadow_black },
-    NoiceCmdlineIcon = { fg = colors.geo_yellow },
-    NoiceConfirm = { fg = colors.soul_white, bg = should_clear_bg('noice') and 'NONE' or colors.shadow_black },
-    NoicePopupmenu = { fg = colors.soul_white, bg = should_clear_bg('noice') and 'NONE' or colors.shadow_black },
+    NotifyBackground = { bg = should_clear_bg('notify') and 'NONE' or colors.bg_highlight },
+    NotifyERRORBorder = { fg = colors.error },
+    NotifyWARNBorder = { fg = colors.warning },
+    NotifyINFOBorder = { fg = colors.info },
+    NotifyDEBUGBorder = { fg = colors.comment },
+    NotifyTRACEBorder = { fg = colors.fg_alt },
+    NoiceCmdlinePopup = { fg = colors.fg, bg = should_clear_bg('noice') and 'NONE' or colors.bg_highlight },
+    NoiceCmdlineIcon = { fg = colors.function_name },
+    NoiceConfirm = { fg = colors.fg, bg = should_clear_bg('noice') and 'NONE' or colors.bg_highlight },
+    NoicePopupmenu = { fg = colors.fg, bg = should_clear_bg('noice') and 'NONE' or colors.bg_highlight },
   }
 end
 
