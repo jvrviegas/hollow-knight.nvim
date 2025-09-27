@@ -37,6 +37,8 @@ local default_config = {
     git = true,   -- GitSigns and git integration
     barbecue = true,
     avante = true, -- Avante.nvim AI copilot
+    indent = true, -- indent-blankline.nvim
+    rest = true,   -- rest.nvim HTTP client
     terminal = true,
   }
 }
@@ -113,6 +115,16 @@ function M.setup(opts)
   if opts.plugins.avante and (has_plugin('avante') or opts.plugins.avante == 'force') then
     local avante_highlights = require('hollow-knight.groups.plugins.avante').setup(colors, should_clear_bg)
     plugin_highlights = merge_highlights(plugin_highlights, avante_highlights)
+  end
+
+  if opts.plugins.indent and (has_plugin('indent_blankline') or has_plugin('ibl') or opts.plugins.indent == 'force') then
+    local indent_highlights = require('hollow-knight.groups.plugins.indent').setup(colors, should_clear_bg)
+    plugin_highlights = merge_highlights(plugin_highlights, indent_highlights)
+  end
+
+  if opts.plugins.rest and (has_plugin('rest') or has_plugin('rest-nvim') or opts.plugins.rest == 'force') then
+    local rest_highlights = require('hollow-knight.groups.plugins.rest').setup(colors, should_clear_bg)
+    plugin_highlights = merge_highlights(plugin_highlights, rest_highlights)
   end
 
   -- Combine all highlights
