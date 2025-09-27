@@ -48,6 +48,8 @@ function M.setup(colors)
     ['@constructor'] = { fg = colors.crystal_blue, bold = true },
     ['@keyword'] = { fg = colors.shade_purple, bold = true }, -- Consistent with syntax keywords
     ['@keyword.function'] = { fg = colors.void_purple, italic = true }, -- Distinct from regular keywords
+    ['@keyword.storage'] = { fg = colors.void_purple, bold = true }, -- const, let, var
+    ['@keyword.operator'] = { fg = colors.pale_white, bold = true }, -- typeof, instanceof
     ['@keyword.return'] = { fg = colors.nail_red, bold = true }, -- More attention-grabbing
     ['@type'] = { fg = colors.soul_blue, bold = true },
     ['@type.builtin'] = { fg = colors.pale_blue, italic = true }, -- Distinguished from user types
@@ -91,8 +93,14 @@ function M.setup(colors)
 
     -- JSX/React specific enhancements
     ['@tag'] = { fg = colors.crystal_blue }, -- HTML-like tags in JSX
-    ['@tag.attribute'] = { fg = colors.lumafly_green, italic = true }, -- JSX attributes/props
+    ['@tag.attribute'] = { fg = colors.soul_blue, italic = true }, -- JSX prop names (blue)
     ['@tag.delimiter'] = { fg = colors.pale_white }, -- JSX angle brackets < >
+
+    -- Enhanced JSX prop value highlighting
+    ['@string.quoted'] = { fg = colors.lumafly_green }, -- Quoted prop values (green)
+    ['@punctuation.bracket'] = { fg = colors.radiance_gold }, -- Curly braces {}
+    ['@variable.parameter.jsx'] = { fg = colors.geo_yellow }, -- Variables in JSX expressions
+    ['@variable.parameter.tsx'] = { fg = colors.geo_yellow }, -- Variables in TSX expressions
 
     -- Better function call highlighting (for React hooks and JavaScript methods)
     ['@function.call'] = { fg = colors.geo_yellow },
@@ -107,9 +115,76 @@ function M.setup(colors)
     -- Variable member access (for object.property syntax)
     ['@variable.member'] = { fg = colors.crystal_blue },
 
+    -- Enhanced TypeScript-specific highlighting
+    ['@type'] = { fg = colors.soul_blue, bold = true }, -- Type annotations
+    ['@type.builtin'] = { fg = colors.crystal_blue, italic = true }, -- Built-in types (string, number, etc.)
+    ['@type.definition'] = { fg = colors.soul_blue, bold = true }, -- Type definitions
+    ['@keyword.storage'] = { fg = colors.void_purple, bold = true }, -- const, let, var
+    ['@keyword.type'] = { fg = colors.dream_blue, italic = true }, -- interface, type, enum
+    ['@keyword.modifier'] = { fg = colors.shade_purple, italic = true }, -- public, private, static
+    ['@constructor.name'] = { fg = colors.radiance_gold, bold = true }, -- Class constructors
+
+    -- Better class and interface distinction
+    ['@type.qualifier'] = { fg = colors.soul_blue, bold = true }, -- Class names in types
+
+    -- Interface property names vs types distinction
+    ['@property'] = { fg = colors.lumafly_green }, -- Interface property names (green)
+    ['@property.typescript'] = { fg = colors.lumafly_green }, -- TypeScript property names
+    ['@field'] = { fg = colors.lumafly_green }, -- Interface field names
+
+    -- Async/await keywords
+    ['@keyword.coroutine'] = { fg = colors.infection_orange, bold = true }, -- async, await
+
+    -- Generic type parameters
+    ['@parameter.type'] = { fg = colors.dream_blue, italic = true }, -- <T, K, V>
+
+    -- Decorators (if using)
+    ['@decorator'] = { fg = colors.infection_orange, italic = true },
+
+    -- Better property highlighting
+    ['@property.definition'] = { fg = colors.lumafly_green, bold = true }, -- Property definitions
+
     -- Enhanced conditional and control flow
     ['@keyword.conditional'] = { fg = colors.void_purple, italic = true },
     ['@keyword.repeat'] = { fg = colors.void_purple, italic = true },
+
+    -- Specific TypeScript/JavaScript Tree-sitter groups
+    ['@variable.builtin.typescript'] = { fg = colors.soul_blue, italic = true },
+    ['@type.typescript'] = { fg = colors.soul_blue, bold = true },
+    ['@type.builtin.typescript'] = { fg = colors.crystal_blue, italic = true },
+    ['@constructor.typescript'] = { fg = colors.radiance_gold, bold = true },
+    ['@keyword.storage.typescript'] = { fg = colors.void_purple, bold = true },
+    ['@keyword.type.typescript'] = { fg = colors.dream_blue, italic = true },
+    ['@function.typescript'] = { fg = colors.geo_yellow, bold = true },
+    ['@method.typescript'] = { fg = colors.geo_yellow, bold = true },
+    ['@property.typescript'] = { fg = colors.lumafly_green },
+    ['@parameter.typescript'] = { fg = colors.soul_white, italic = true },
+
+    -- JavaScript specific
+    ['@variable.builtin.javascript'] = { fg = colors.soul_blue, italic = true },
+    ['@function.javascript'] = { fg = colors.geo_yellow, bold = true },
+    ['@method.javascript'] = { fg = colors.geo_yellow, bold = true },
+    ['@property.javascript'] = { fg = colors.lumafly_green },
+
+    -- More specific Tree-sitter groups
+    ['@lsp.type.class.typescript'] = { fg = colors.radiance_gold, bold = true },
+    ['@lsp.type.interface.typescript'] = { fg = colors.crystal_blue, bold = true },
+    ['@lsp.type.type.typescript'] = { fg = colors.soul_blue, bold = true },
+    ['@lsp.type.enum.typescript'] = { fg = colors.radiance_gold, bold = true },
+
+    -- Specific JSX/TSX prop highlighting
+    ['@tag.attribute.jsx'] = { fg = colors.soul_blue, italic = true }, -- JSX prop names
+    ['@tag.attribute.tsx'] = { fg = colors.soul_blue, italic = true }, -- TSX prop names
+    ['@string.quoted.jsx'] = { fg = colors.lumafly_green }, -- JSX quoted prop values
+    ['@string.quoted.tsx'] = { fg = colors.lumafly_green }, -- TSX quoted prop values
+    ['@punctuation.bracket.jsx'] = { fg = colors.radiance_gold }, -- JSX {} brackets
+    ['@punctuation.bracket.tsx'] = { fg = colors.radiance_gold }, -- TSX {} brackets
+
+    -- JSX/TSX expression highlighting
+    ['@variable.jsx'] = { fg = colors.geo_yellow }, -- Variables inside JSX {}
+    ['@variable.tsx'] = { fg = colors.geo_yellow }, -- Variables inside TSX {}
+    ['@function.call.jsx'] = { fg = colors.geo_yellow }, -- Function calls in JSX
+    ['@function.call.tsx'] = { fg = colors.geo_yellow }, -- Function calls in TSX
 
     -- TypeScript-specific type annotations and interface improvements
     ['@type.qualifier'] = { fg = colors.dream_blue, italic = true }, -- readonly, public, etc.
@@ -132,7 +207,7 @@ function M.setup(colors)
     ['@attribute'] = { fg = colors.infection_orange, italic = true }, -- @decorator
 
     -- Module/namespace keywords
-    ['@keyword.storage'] = { fg = colors.shade_purple, bold = true }, -- const, let, var
+    ['@keyword.storage'] = { fg = colors.void_purple, bold = true }, -- const, let, var
     ['@keyword.modifier'] = { fg = colors.dream_blue, italic = true }, -- async, static, etc.
 
     -- Enhanced constants and special values

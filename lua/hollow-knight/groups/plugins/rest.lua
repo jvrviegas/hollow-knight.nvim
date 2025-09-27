@@ -6,98 +6,98 @@ local M = {}
 function M.setup(colors, should_clear_bg)
   return {
     -- rest.nvim UI highlights
-    RestNvim = { fg = colors.palette.palace.soul },
-    RestNvimRequest = { fg = colors.palette.soul.bright, bold = true },
-    RestNvimResponse = { fg = colors.palette.greenpath.moss },
-    RestNvimError = { fg = colors.palette.combat.blood },
-    RestNvimLoading = { fg = colors.palette.city.geo },
+    RestNvim = { fg = colors.soul_white },
+    RestNvimRequest = { fg = colors.soul_blue, bold = true },
+    RestNvimResponse = { fg = colors.moss_green },
+    RestNvimError = { fg = colors.blood_red },
+    RestNvimLoading = { fg = colors.geo_yellow },
 
     -- HTTP Tree-sitter syntax highlights for .http files
-    ['@method.http'] = { fg = colors.palette.soul.bright, bold = true },
-    ['@method.get.http'] = { fg = colors.palette.greenpath.moss, bold = true },
-    ['@method.post.http'] = { fg = colors.palette.city.geo, bold = true },
-    ['@method.put.http'] = { fg = colors.palette.infection.bright, bold = true },
-    ['@method.delete.http'] = { fg = colors.palette.combat.nail, bold = true },
-    ['@method.patch.http'] = { fg = colors.palette.void.bright, bold = true },
-    ['@method.head.http'] = { fg = colors.palette.palace.silver, bold = true },
-    ['@method.options.http'] = { fg = colors.palette.ui.mask, bold = true },
+    ['@method.http'] = { fg = colors.soul_blue, bold = true },
+    ['@method.get.http'] = { fg = colors.moss_green, bold = true },
+    ['@method.post.http'] = { fg = colors.geo_yellow, bold = true },
+    ['@method.put.http'] = { fg = colors.infection_orange, bold = true },
+    ['@method.delete.http'] = { fg = colors.nail_red, bold = true },
+    ['@method.patch.http'] = { fg = colors.void_purple, bold = true },
+    ['@method.head.http'] = { fg = colors.ghost_white, bold = true },
+    ['@method.options.http'] = { fg = colors.mask_gray, bold = true },
 
     -- URL and path highlighting
-    ['@uri.http'] = { fg = colors.palette.soul.crystal, underline = true },
-    ['@url.http'] = { fg = colors.palette.soul.crystal, underline = true },
-    ['@path.http'] = { fg = colors.palette.palace.pale },
-    ['@query.http'] = { fg = colors.palette.greenpath.lumafly },
-    ['@fragment.http'] = { fg = colors.palette.void.bright },
+    ['@uri.http'] = { fg = colors.crystal_blue, underline = true },
+    ['@url.http'] = { fg = colors.crystal_blue, underline = true },
+    ['@path.http'] = { fg = colors.pale_white },
+    ['@query.http'] = { fg = colors.lumafly_green },
+    ['@fragment.http'] = { fg = colors.void_purple },
 
     -- Headers
-    ['@header.http'] = { fg = colors.palette.city.pale_gold },
-    ['@header.name.http'] = { fg = colors.palette.city.pale_gold, bold = true },
-    ['@header.value.http'] = { fg = colors.palette.palace.ghost },
+    ['@header.http'] = { fg = colors.pale_gold },
+    ['@header.name.http'] = { fg = colors.pale_gold, bold = true },
+    ['@header.value.http'] = { fg = colors.ghost_white },
 
     -- Content and body
-    ['@body.http'] = { fg = colors.palette.palace.soul },
-    ['@json.http'] = { fg = colors.palette.greenpath.lumafly },
-    ['@xml.http'] = { fg = colors.palette.infection.bright },
+    ['@body.http'] = { fg = colors.soul_white },
+    ['@json.http'] = { fg = colors.lumafly_green },
+    ['@xml.http'] = { fg = colors.infection_orange },
 
     -- Variables and interpolation
-    ['@variable.http'] = { fg = colors.palette.void.bright },
-    ['@variable.name.http'] = { fg = colors.palette.void.bright, italic = true },
-    ['@variable.interpolation.http'] = { fg = colors.palette.soul.dream, bold = true },
+    ['@variable.http'] = { fg = colors.void_purple },
+    ['@variable.name.http'] = { fg = colors.void_purple, italic = true },
+    ['@variable.interpolation.http'] = { fg = colors.dream_blue, bold = true },
 
     -- Comments and documentation
-    ['@comment.http'] = { fg = colors.palette.ui.mask, italic = true },
-    ['@comment.documentation.http'] = { fg = colors.palette.ui.stone, italic = true },
+    ['@comment.http'] = { fg = colors.mask_gray, italic = true },
+    ['@comment.documentation.http'] = { fg = colors.mask_gray, italic = true },
 
     -- Status codes
-    ['@number.http'] = { fg = colors.palette.city.geo },
-    ['@status.success.http'] = { fg = colors.palette.greenpath.moss, bold = true },
-    ['@status.redirect.http'] = { fg = colors.palette.city.geo, bold = true },
-    ['@status.client_error.http'] = { fg = colors.palette.infection.bright, bold = true },
-    ['@status.server_error.http'] = { fg = colors.palette.combat.blood, bold = true },
+    ['@number.http'] = { fg = colors.geo_yellow },
+    ['@status.success.http'] = { fg = colors.moss_green, bold = true },
+    ['@status.redirect.http'] = { fg = colors.geo_yellow, bold = true },
+    ['@status.client_error.http'] = { fg = colors.infection_orange, bold = true },
+    ['@status.server_error.http'] = { fg = colors.blood_red, bold = true },
 
     -- Separators and delimiters
-    ['@separator.http'] = { fg = colors.palette.ui.mask },
-    ['@delimiter.http'] = { fg = colors.palette.palace.silver },
+    ['@separator.http'] = { fg = colors.mask_gray },
+    ['@delimiter.http'] = { fg = colors.ghost_white },
 
     -- Protocol version
-    ['@version.http'] = { fg = colors.palette.soul.pale },
-    ['@protocol.http'] = { fg = colors.palette.soul.bright },
+    ['@version.http'] = { fg = colors.pale_white },
+    ['@protocol.http'] = { fg = colors.soul_blue },
 
     -- Authentication
-    ['@auth.http'] = { fg = colors.palette.void.grimm },
-    ['@token.http'] = { fg = colors.palette.void.deep, bold = true },
+    ['@auth.http'] = { fg = colors.grimm_purple },
+    ['@token.http'] = { fg = colors.shade_purple, bold = true },
 
     -- Special keywords
-    ['@keyword.http'] = { fg = colors.palette.soul.dream },
-    ['@keyword.import.http'] = { fg = colors.palette.void.bright },
-    ['@keyword.export.http'] = { fg = colors.palette.city.brass },
+    ['@keyword.http'] = { fg = colors.dream_blue },
+    ['@keyword.import.http'] = { fg = colors.void_purple },
+    ['@keyword.export.http'] = { fg = colors.geo_yellow },
 
     -- Request/response sections
-    ['@section.request.http'] = { fg = colors.palette.soul.bright, bg = colors.palette.abyss.shadow },
-    ['@section.response.http'] = { fg = colors.palette.greenpath.moss, bg = colors.palette.abyss.shadow },
+    ['@section.request.http'] = { fg = colors.soul_blue, bg = colors.shadow_black },
+    ['@section.response.http'] = { fg = colors.moss_green, bg = colors.shadow_black },
 
     -- Environment and configuration
-    ['@environment.http'] = { fg = colors.palette.city.brass, italic = true },
-    ['@config.http'] = { fg = colors.palette.palace.silver },
+    ['@environment.http'] = { fg = colors.geo_yellow, italic = true },
+    ['@config.http'] = { fg = colors.ghost_white },
 
     -- File references
-    ['@file.http'] = { fg = colors.palette.greenpath.acid, underline = true },
-    ['@filename.http'] = { fg = colors.palette.greenpath.acid },
+    ['@file.http'] = { fg = colors.acid_green, underline = true },
+    ['@filename.http'] = { fg = colors.acid_green },
 
     -- Error highlighting
-    ['@error.http'] = { fg = colors.palette.combat.blood, undercurl = true, sp = colors.palette.combat.blood },
-    ['@warning.http'] = { fg = colors.palette.infection.bright, undercurl = true, sp = colors.palette.infection.bright },
+    ['@error.http'] = { fg = colors.blood_red, undercurl = true, sp = colors.blood_red },
+    ['@warning.http'] = { fg = colors.infection_orange, undercurl = true, sp = colors.infection_orange },
 
     -- Generic HTTP syntax (fallback)
-    httpMethod = { fg = colors.palette.soul.bright, bold = true },
-    httpUrl = { fg = colors.palette.soul.crystal, underline = true },
-    httpHeader = { fg = colors.palette.city.pale_gold },
-    httpHeaderName = { fg = colors.palette.city.pale_gold, bold = true },
-    httpHeaderValue = { fg = colors.palette.palace.ghost },
-    httpBody = { fg = colors.palette.palace.soul },
-    httpComment = { fg = colors.palette.ui.mask, italic = true },
-    httpVersion = { fg = colors.palette.soul.pale },
-    httpStatus = { fg = colors.palette.city.geo },
+    httpMethod = { fg = colors.soul_blue, bold = true },
+    httpUrl = { fg = colors.crystal_blue, underline = true },
+    httpHeader = { fg = colors.pale_gold },
+    httpHeaderName = { fg = colors.pale_gold, bold = true },
+    httpHeaderValue = { fg = colors.ghost_white },
+    httpBody = { fg = colors.soul_white },
+    httpComment = { fg = colors.mask_gray, italic = true },
+    httpVersion = { fg = colors.pale_white },
+    httpStatus = { fg = colors.geo_yellow },
   }
 end
 
