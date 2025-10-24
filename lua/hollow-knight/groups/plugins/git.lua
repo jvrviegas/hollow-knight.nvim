@@ -25,23 +25,6 @@ function M.setup(colors)
     GitSignsChangeLn = { bg = colors.shadow_black },
     GitSignsDeleteLn = { bg = colors.shadow_black },
 
-    -- Fugitive and other Git plugins
-    gitcommitSelectedFile = { fg = colors.lumafly_green },
-    gitcommitDiscardedFile = { fg = colors.nail_red },
-    gitcommitOverflow = { fg = colors.infection_orange },
-    gitcommitSummary = { fg = colors.soul_blue },
-    gitcommitComment = { fg = colors.mask_gray, italic = true },
-    gitcommitUntracked = { fg = colors.mask_gray },
-    gitcommitDiscarded = { fg = colors.nail_red },
-    gitcommitSelected = { fg = colors.lumafly_green },
-    gitcommitHeader = { fg = colors.geo_yellow },
-    gitcommitSelectedType = { fg = colors.soul_blue },
-    gitcommitUnmergedType = { fg = colors.infection_orange },
-    gitcommitDiscardedType = { fg = colors.nail_red },
-    gitcommitBranch = { fg = colors.crystal_blue, bold = true },
-    gitcommitUntrackedFile = { fg = colors.soul_white },
-    gitcommitUnmergedFile = { fg = colors.infection_orange, bold = true },
-    gitcommitSelectFile = { fg = colors.lumafly_green },
   }
 end
 
