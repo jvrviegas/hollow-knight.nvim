@@ -158,9 +158,10 @@ function M.setup(colors)
     ['@diff.delta'] = { fg = colors.soul_blue },
 
     -- Tags (HTML, JSX, etc.)
-    ['@tag'] = { fg = colors.crystal_blue },
-    ['@tag.attribute'] = { fg = colors.soul_blue, italic = true },
-    ['@tag.delimiter'] = { fg = colors.pale_white },
+    -- Component names should be distinct and prominent
+    ['@tag'] = { fg = colors.geo_yellow }, -- Component names (e.g., <Test>)
+    ['@tag.attribute'] = { fg = colors.crystal_blue, italic = true }, -- Prop names (e.g., className)
+    ['@tag.delimiter'] = { fg = colors.pale_white }, -- < > brackets
 
     -- Language-specific overrides for better semantic highlighting
 
