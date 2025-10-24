@@ -5,224 +5,184 @@ local M = {}
 
 function M.setup(colors)
   return {
-    -- Syntax highlighting - The Ancient Language (Enhanced for readability)
+    -- Standard syntax highlighting groups
     Comment = { fg = colors.mask_gray, italic = true },
-    Constant = { fg = colors.crystal_blue, bold = true }, -- Made bold for prominence
+
+    -- Constants
+    Constant = { fg = colors.crystal_blue },
     String = { fg = colors.lumafly_green },
-    Character = { fg = colors.moss_green, bold = true }, -- Better distinction from strings
+    Character = { fg = colors.moss_green },
     Number = { fg = colors.pale_gold },
-    Boolean = { fg = colors.crystal_blue, italic = true }, -- Different from constants
-    Float = { fg = colors.radiance_gold },
-    Identifier = { fg = colors.soul_white }, -- Better contrast, use main text color
-    Function = { fg = colors.geo_yellow, bold = true },
-    Statement = { fg = colors.void_purple, bold = true },
-    Conditional = { fg = colors.void_purple, italic = true }, -- Consistent with statement but distinct
-    Repeat = { fg = colors.void_purple, italic = true }, -- Consistent with conditional
-    Label = { fg = colors.infection_orange, bold = true }, -- More prominent
-    Operator = { fg = colors.pale_white, bold = true }, -- Better visibility
-    Keyword = { fg = colors.shade_purple, bold = true }, -- More distinct from dream_blue
-    Exception = { fg = colors.nail_red, bold = true },
-    PreProc = { fg = colors.infection_orange }, -- Different from void_purple for distinction
-    Include = { fg = colors.crystal_blue, italic = true }, -- Distinct from other preprocessor
-    Define = { fg = colors.pale_blue, bold = true }, -- More prominent
-    Macro = { fg = colors.infection_orange, italic = true }, -- Distinct from other orange elements
-    PreCondit = { fg = colors.shade_purple, italic = true },
-    Type = { fg = colors.soul_blue, bold = true },
-    StorageClass = { fg = colors.dream_blue, italic = true }, -- Distinct from type
-    Structure = { fg = colors.pale_blue, bold = true }, -- More prominent
-    Typedef = { fg = colors.crystal_blue, italic = true }, -- Distinct from structure
-    Special = { fg = colors.radiance_gold, bold = true }, -- More prominent
-    SpecialChar = { fg = colors.infection_orange, bold = true }, -- Better visibility
-    Tag = { fg = colors.lumafly_green, bold = true }, -- More prominent
-    Delimiter = { fg = colors.pale_white }, -- Better contrast than ghost_white
-    SpecialComment = { fg = colors.soul_blue, bold = true, italic = true }, -- More distinct
-    Debug = { fg = colors.crimson_red, bold = true },
+    Boolean = { fg = colors.crystal_blue, italic = true },
+    Float = { fg = colors.pale_gold },
 
-    -- Treesitter highlights - Modern Hallownest Magic (Enhanced readability)
+    -- Identifiers
+    Identifier = { fg = colors.soul_white },
+    Function = { fg = colors.geo_yellow },
+
+    -- Statements
+    Statement = { fg = colors.void_purple },
+    Conditional = { fg = colors.void_purple, italic = true },
+    Repeat = { fg = colors.void_purple, italic = true },
+    Label = { fg = colors.infection_orange },
+    Operator = { fg = colors.pale_white },
+    Keyword = { fg = colors.void_purple },
+    Exception = { fg = colors.nail_red },
+
+    -- Preprocessor
+    PreProc = { fg = colors.infection_orange },
+    Include = { fg = colors.infection_orange, italic = true },
+    Define = { fg = colors.infection_orange },
+    Macro = { fg = colors.infection_orange, italic = true },
+    PreCondit = { fg = colors.infection_orange, italic = true },
+
+    -- Types
+    Type = { fg = colors.soul_blue },
+    StorageClass = { fg = colors.void_purple, italic = true },
+    Structure = { fg = colors.soul_blue },
+    Typedef = { fg = colors.soul_blue, italic = true },
+
+    -- Special
+    Special = { fg = colors.geo_yellow },
+    SpecialChar = { fg = colors.infection_orange },
+    Tag = { fg = colors.crystal_blue },
+    Delimiter = { fg = colors.pale_white },
+    SpecialComment = { fg = colors.soul_blue, italic = true },
+    Debug = { fg = colors.nail_red },
+
+    -- Treesitter core highlighting
+    -- Variables
     ['@variable'] = { fg = colors.soul_white },
-    ['@variable.builtin'] = { fg = colors.soul_blue, italic = true }, -- Distinguished from regular variables
-    ['@property'] = { fg = colors.lumafly_green }, -- Interface/object properties in green
-    ['@function'] = { fg = colors.geo_yellow, bold = true },
-    ['@function.builtin'] = { fg = colors.radiance_gold, italic = true }, -- Distinguished from user functions
-    ['@method'] = { fg = colors.lumafly_green, bold = true }, -- More prominent
-    ['@constructor'] = { fg = colors.crystal_blue, bold = true },
-    ['@keyword'] = { fg = colors.shade_purple, bold = true }, -- Consistent with syntax keywords
-    ['@keyword.function'] = { fg = colors.void_purple, italic = true }, -- Distinct from regular keywords
-    ['@keyword.storage'] = { fg = colors.void_purple, bold = true }, -- const, let, var
-    ['@keyword.operator'] = { fg = colors.pale_white, bold = true }, -- typeof, instanceof
-    ['@keyword.return'] = { fg = colors.nail_red, bold = true }, -- More attention-grabbing
-    ['@type'] = { fg = colors.soul_blue, bold = true },
-    ['@type.builtin'] = { fg = colors.pale_blue, italic = true }, -- Distinguished from user types
-    ['@string'] = { fg = colors.lumafly_green },
-    ['@string.escape'] = { fg = colors.infection_orange, bold = true }, -- More visible
-    ['@number'] = { fg = colors.pale_gold, bold = true }, -- Better visibility
-    ['@boolean'] = { fg = colors.crystal_blue, italic = true }, -- Consistent with syntax booleans
-    ['@comment'] = { fg = colors.mask_gray, italic = true },
-    ['@punctuation.bracket'] = { fg = colors.pale_white, bold = true }, -- Better visibility
-    ['@punctuation.delimiter'] = { fg = colors.pale_white },
+    ['@variable.builtin'] = { fg = colors.soul_blue, italic = true },
+    ['@variable.parameter'] = { fg = colors.ghost_white, italic = true },
+    ['@variable.member'] = { fg = colors.lumafly_green },
 
-    -- Additional Treesitter groups for completeness
-    ['@constant'] = { fg = colors.crystal_blue, bold = true },
-    ['@constant.builtin'] = { fg = colors.dream_blue, italic = true },
-    ['@constant.macro'] = { fg = colors.infection_orange, italic = true },
-    ['@operator'] = { fg = colors.pale_white, bold = true },
-    ['@field'] = { fg = colors.lumafly_green }, -- Object fields/properties
-    ['@parameter'] = { fg = colors.ghost_white, italic = true },
-    ['@namespace'] = { fg = colors.dream_blue },
-    ['@symbol'] = { fg = colors.crystal_blue },
+    -- Constants
+    ['@constant'] = { fg = colors.crystal_blue },
+    ['@constant.builtin'] = { fg = colors.crystal_blue, italic = true },
+    ['@constant.macro'] = { fg = colors.infection_orange },
+
+    -- Functions and methods
+    ['@function'] = { fg = colors.geo_yellow },
+    ['@function.builtin'] = { fg = colors.geo_yellow, italic = true },
+    ['@function.call'] = { fg = colors.geo_yellow },
+    ['@function.macro'] = { fg = colors.infection_orange },
+    ['@method'] = { fg = colors.geo_yellow },
+    ['@method.call'] = { fg = colors.geo_yellow },
+    ['@constructor'] = { fg = colors.geo_yellow },
+
+    -- Keywords
+    ['@keyword'] = { fg = colors.void_purple },
+    ['@keyword.coroutine'] = { fg = colors.void_purple, italic = true }, -- async/await
+    ['@keyword.function'] = { fg = colors.void_purple },
+    ['@keyword.operator'] = { fg = colors.void_purple },
+    ['@keyword.import'] = { fg = colors.infection_orange, italic = true },
+    ['@keyword.export'] = { fg = colors.infection_orange, italic = true },
+    ['@keyword.return'] = { fg = colors.void_purple },
+    ['@keyword.conditional'] = { fg = colors.void_purple, italic = true },
+    ['@keyword.repeat'] = { fg = colors.void_purple, italic = true },
+    ['@keyword.exception'] = { fg = colors.nail_red },
+
+    -- Types
+    ['@type'] = { fg = colors.soul_blue },
+    ['@type.builtin'] = { fg = colors.soul_blue, italic = true },
+    ['@type.definition'] = { fg = colors.soul_blue },
+    ['@type.qualifier'] = { fg = colors.void_purple, italic = true }, -- const, readonly
+
+    -- Properties and fields
+    ['@property'] = { fg = colors.lumafly_green },
+    ['@field'] = { fg = colors.lumafly_green },
+
+    -- Literals
+    ['@string'] = { fg = colors.lumafly_green },
+    ['@string.documentation'] = { fg = colors.moss_green, italic = true },
+    ['@string.escape'] = { fg = colors.infection_orange },
+    ['@string.regex'] = { fg = colors.infection_orange, italic = true },
+    ['@string.special'] = { fg = colors.infection_orange },
+    ['@string.special.symbol'] = { fg = colors.crystal_blue },
+    ['@character'] = { fg = colors.moss_green },
+    ['@character.special'] = { fg = colors.infection_orange },
+    ['@number'] = { fg = colors.pale_gold },
+    ['@boolean'] = { fg = colors.crystal_blue, italic = true },
+    ['@float'] = { fg = colors.pale_gold },
+
+    -- Comments
+    ['@comment'] = { fg = colors.mask_gray, italic = true },
+    ['@comment.documentation'] = { fg = colors.soul_blue, italic = true },
+    ['@comment.error'] = { fg = colors.nail_red },
+    ['@comment.warning'] = { fg = colors.infection_orange },
+    ['@comment.note'] = { fg = colors.soul_blue },
+    ['@comment.todo'] = { fg = colors.geo_yellow },
+
+    -- Punctuation
+    ['@punctuation.delimiter'] = { fg = colors.pale_white },
+    ['@punctuation.bracket'] = { fg = colors.pale_white },
+    ['@punctuation.special'] = { fg = colors.infection_orange },
+
+    -- Operators
+    ['@operator'] = { fg = colors.pale_white },
+
+    -- Other
+    ['@label'] = { fg = colors.infection_orange },
+    ['@namespace'] = { fg = colors.soul_blue },
+    ['@attribute'] = { fg = colors.infection_orange, italic = true },
+    ['@module'] = { fg = colors.soul_blue },
+
+    -- Markup (Markdown, etc.)
+    ['@markup'] = { fg = colors.soul_white },
+    ['@markup.strong'] = { bold = true },
+    ['@markup.emphasis'] = { italic = true },
+    ['@markup.underline'] = { underline = true },
+    ['@markup.strike'] = { strikethrough = true },
+    ['@markup.heading'] = { fg = colors.geo_yellow, bold = true },
+    ['@markup.heading.1'] = { fg = colors.geo_yellow, bold = true },
+    ['@markup.heading.2'] = { fg = colors.soul_blue, bold = true },
+    ['@markup.heading.3'] = { fg = colors.crystal_blue, bold = true },
+    ['@markup.heading.4'] = { fg = colors.lumafly_green, bold = true },
+    ['@markup.heading.5'] = { fg = colors.ghost_white, bold = true },
+    ['@markup.heading.6'] = { fg = colors.mask_gray, bold = true },
+    ['@markup.quote'] = { fg = colors.ghost_white, italic = true },
+    ['@markup.math'] = { fg = colors.pale_gold },
+    ['@markup.link'] = { fg = colors.soul_blue, underline = true },
+    ['@markup.link.label'] = { fg = colors.crystal_blue },
+    ['@markup.link.url'] = { fg = colors.soul_blue, underline = true },
+    ['@markup.raw'] = { fg = colors.lumafly_green },
+    ['@markup.raw.block'] = { fg = colors.lumafly_green },
+    ['@markup.list'] = { fg = colors.infection_orange },
+    ['@markup.list.checked'] = { fg = colors.moss_green },
+    ['@markup.list.unchecked'] = { fg = colors.mask_gray },
+
+    -- Diff
+    ['@diff.plus'] = { fg = colors.moss_green },
+    ['@diff.minus'] = { fg = colors.nail_red },
+    ['@diff.delta'] = { fg = colors.soul_blue },
+
+    -- Tags (HTML, JSX, etc.)
+    ['@tag'] = { fg = colors.crystal_blue },
+    ['@tag.attribute'] = { fg = colors.soul_blue, italic = true },
+    ['@tag.delimiter'] = { fg = colors.pale_white },
+
+    -- Language-specific overrides for better semantic highlighting
+
+    -- Legacy @text.* groups (for older Treesitter versions)
     ['@text'] = { fg = colors.soul_white },
-    ['@text.strong'] = { fg = colors.soul_white, bold = true },
-    ['@text.emphasis'] = { fg = colors.soul_white, italic = true },
-    ['@text.underline'] = { fg = colors.soul_white, underline = true },
-    ['@text.strike'] = { fg = colors.mask_gray, strikethrough = true },
+    ['@text.strong'] = { bold = true },
+    ['@text.emphasis'] = { italic = true },
+    ['@text.underline'] = { underline = true },
+    ['@text.strike'] = { strikethrough = true },
     ['@text.title'] = { fg = colors.geo_yellow, bold = true },
     ['@text.literal'] = { fg = colors.lumafly_green },
     ['@text.uri'] = { fg = colors.soul_blue, underline = true },
     ['@text.math'] = { fg = colors.pale_gold },
     ['@text.reference'] = { fg = colors.soul_blue },
     ['@text.environment'] = { fg = colors.infection_orange },
-    ['@text.environment.name'] = { fg = colors.radiance_gold },
-    ['@note'] = { fg = colors.soul_blue },
-    ['@warning'] = { fg = colors.infection_orange },
-    ['@danger'] = { fg = colors.blood_red },
+    ['@text.environment.name'] = { fg = colors.geo_yellow },
 
-    -- Enhanced JavaScript/TypeScript/JSX/TSX highlighting
-    -- Template strings and interpolation (enhanced for template literals)
-    ['@string.template'] = { fg = colors.moss_green, italic = true },
-    ['@punctuation.special'] = { fg = colors.radiance_gold, bold = true }, -- Template literal ${...}
-
-    -- JSX/React specific enhancements
-    ['@tag'] = { fg = colors.crystal_blue }, -- HTML-like tags in JSX
-    ['@tag.attribute'] = { fg = colors.soul_blue, italic = true }, -- JSX prop names (blue)
-    ['@tag.delimiter'] = { fg = colors.pale_white }, -- JSX angle brackets < >
-
-    -- Enhanced JSX prop value highlighting
-    ['@string.quoted'] = { fg = colors.lumafly_green }, -- Quoted prop values (green)
-    ['@punctuation.bracket'] = { fg = colors.radiance_gold }, -- Curly braces {}
-    ['@variable.parameter.jsx'] = { fg = colors.geo_yellow }, -- Variables in JSX expressions
-    ['@variable.parameter.tsx'] = { fg = colors.geo_yellow }, -- Variables in TSX expressions
-
-    -- Better function call highlighting (for React hooks and JavaScript methods)
-    ['@function.call'] = { fg = colors.geo_yellow },
-
-    -- Import/Export enhancements
-    ['@keyword.import'] = { fg = colors.crystal_blue, italic = true },
-    ['@keyword.export'] = { fg = colors.infection_orange, italic = true },
-
-    -- Object method highlighting
-    ['@method.call'] = { fg = colors.lumafly_green },
-
-    -- Variable member access (for object.property syntax)
-    ['@variable.member'] = { fg = colors.crystal_blue },
-
-    -- Enhanced TypeScript-specific highlighting
-    ['@type'] = { fg = colors.soul_blue, bold = true }, -- Type annotations
-    ['@type.builtin'] = { fg = colors.crystal_blue, italic = true }, -- Built-in types (string, number, etc.)
-    ['@type.definition'] = { fg = colors.soul_blue, bold = true }, -- Type definitions
-    ['@keyword.storage'] = { fg = colors.void_purple, bold = true }, -- const, let, var
-    ['@keyword.type'] = { fg = colors.dream_blue, italic = true }, -- interface, type, enum
-    ['@keyword.modifier'] = { fg = colors.shade_purple, italic = true }, -- public, private, static
-    ['@constructor.name'] = { fg = colors.radiance_gold, bold = true }, -- Class constructors
-
-    -- Better class and interface distinction
-    ['@type.qualifier'] = { fg = colors.soul_blue, bold = true }, -- Class names in types
-
-    -- Interface property names vs types distinction
-    ['@property'] = { fg = colors.lumafly_green }, -- Interface property names (green)
-    ['@property.typescript'] = { fg = colors.lumafly_green }, -- TypeScript property names
-    ['@field'] = { fg = colors.lumafly_green }, -- Interface field names
-
-    -- Async/await keywords
-    ['@keyword.coroutine'] = { fg = colors.infection_orange, bold = true }, -- async, await
-
-    -- Generic type parameters
-    ['@parameter.type'] = { fg = colors.dream_blue, italic = true }, -- <T, K, V>
-
-    -- Decorators (if using)
-    ['@decorator'] = { fg = colors.infection_orange, italic = true },
-
-    -- Better property highlighting
-    ['@property.definition'] = { fg = colors.lumafly_green, bold = true }, -- Property definitions
-
-    -- Enhanced conditional and control flow
-    ['@keyword.conditional'] = { fg = colors.void_purple, italic = true },
-    ['@keyword.repeat'] = { fg = colors.void_purple, italic = true },
-
-    -- Specific TypeScript/JavaScript Tree-sitter groups
-    ['@variable.builtin.typescript'] = { fg = colors.soul_blue, italic = true },
-    ['@type.typescript'] = { fg = colors.soul_blue, bold = true },
-    ['@type.builtin.typescript'] = { fg = colors.crystal_blue, italic = true },
-    ['@constructor.typescript'] = { fg = colors.radiance_gold, bold = true },
-    ['@keyword.storage.typescript'] = { fg = colors.void_purple, bold = true },
-    ['@keyword.type.typescript'] = { fg = colors.dream_blue, italic = true },
-    ['@function.typescript'] = { fg = colors.geo_yellow, bold = true },
-    ['@method.typescript'] = { fg = colors.geo_yellow, bold = true },
-    ['@property.typescript'] = { fg = colors.lumafly_green },
-    ['@parameter.typescript'] = { fg = colors.soul_white, italic = true },
-
-    -- JavaScript specific
-    ['@variable.builtin.javascript'] = { fg = colors.soul_blue, italic = true },
-    ['@function.javascript'] = { fg = colors.geo_yellow, bold = true },
-    ['@method.javascript'] = { fg = colors.geo_yellow, bold = true },
-    ['@property.javascript'] = { fg = colors.lumafly_green },
-
-    -- More specific Tree-sitter groups
-    ['@lsp.type.class.typescript'] = { fg = colors.radiance_gold, bold = true },
-    ['@lsp.type.interface.typescript'] = { fg = colors.crystal_blue, bold = true },
-    ['@lsp.type.type.typescript'] = { fg = colors.soul_blue, bold = true },
-    ['@lsp.type.enum.typescript'] = { fg = colors.radiance_gold, bold = true },
-
-    -- Specific JSX/TSX prop highlighting
-    ['@tag.attribute.jsx'] = { fg = colors.soul_blue, italic = true }, -- JSX prop names
-    ['@tag.attribute.tsx'] = { fg = colors.soul_blue, italic = true }, -- TSX prop names
-    ['@string.quoted.jsx'] = { fg = colors.lumafly_green }, -- JSX quoted prop values
-    ['@string.quoted.tsx'] = { fg = colors.lumafly_green }, -- TSX quoted prop values
-    ['@punctuation.bracket.jsx'] = { fg = colors.radiance_gold }, -- JSX {} brackets
-    ['@punctuation.bracket.tsx'] = { fg = colors.radiance_gold }, -- TSX {} brackets
-
-    -- JSX/TSX expression highlighting
-    ['@variable.jsx'] = { fg = colors.geo_yellow }, -- Variables inside JSX {}
-    ['@variable.tsx'] = { fg = colors.geo_yellow }, -- Variables inside TSX {}
-    ['@function.call.jsx'] = { fg = colors.geo_yellow }, -- Function calls in JSX
-    ['@function.call.tsx'] = { fg = colors.geo_yellow }, -- Function calls in TSX
-
-    -- TypeScript-specific type annotations and interface improvements
-    ['@type.qualifier'] = { fg = colors.dream_blue, italic = true }, -- readonly, public, etc.
-    ['@type.definition'] = { fg = colors.crystal_blue, bold = true }, -- interface, type definitions
-
-    -- Enhanced TypeScript interface and object type highlighting
-    ['@property.typescript'] = { fg = colors.lumafly_green }, -- Interface property names
-    ['@property.tsx'] = { fg = colors.lumafly_green }, -- TSX interface property names
-    ['@type.typescript'] = { fg = colors.soul_blue, bold = true }, -- Type annotations
-    ['@type.tsx'] = { fg = colors.soul_blue, bold = true }, -- TSX type annotations
-    ['@type.builtin.typescript'] = { fg = colors.pale_blue, italic = true }, -- Built-in types (string, number, etc.)
-    ['@type.builtin.tsx'] = { fg = colors.pale_blue, italic = true },
-
-    -- Optional and union type operators
-    ['@operator.type'] = { fg = colors.infection_orange, bold = true }, -- ? : | & operators in types
-    ['@punctuation.delimiter.typescript'] = { fg = colors.pale_white }, -- : ; , in interfaces
-    ['@punctuation.delimiter.tsx'] = { fg = colors.pale_white },
-
-    -- Decorators (TypeScript/experimental JavaScript)
-    ['@attribute'] = { fg = colors.infection_orange, italic = true }, -- @decorator
-
-    -- Module/namespace keywords
-    ['@keyword.storage'] = { fg = colors.void_purple, bold = true }, -- const, let, var
-    ['@keyword.modifier'] = { fg = colors.dream_blue, italic = true }, -- async, static, etc.
-
-    -- Enhanced constants and special values
-    ['@constant.builtin'] = { fg = colors.dream_blue, italic = true }, -- true, false, null, undefined
-
-    -- JavaScript/TypeScript specific literals and values
-    ['@string.regex'] = { fg = colors.infection_orange, italic = true }, -- Regular expressions
-    ['@number.float'] = { fg = colors.radiance_gold }, -- Float numbers
-
-    -- Enhanced error/exception handling
-    ['@keyword.exception'] = { fg = colors.nail_red, bold = true }, -- try, catch, throw
-
-    -- JSX expression braces highlighting
-    ['@punctuation.bracket.jsx'] = { fg = colors.geo_yellow, bold = true },
-    ['@punctuation.bracket.tsx'] = { fg = colors.geo_yellow, bold = true },
+    -- Notes and TODOs
+    ['@text.note'] = { fg = colors.soul_blue },
+    ['@text.warning'] = { fg = colors.infection_orange },
+    ['@text.danger'] = { fg = colors.nail_red },
+    ['@text.todo'] = { fg = colors.geo_yellow },
   }
 end
 

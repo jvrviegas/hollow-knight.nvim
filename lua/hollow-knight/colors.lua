@@ -41,77 +41,82 @@ local function fade(hex, alpha)
 end
 
 -- Hallownest's Core Palette - Enhanced for better contrast and readability
+-- Colors chosen with WCAG contrast guidelines in mind
 M.palette = {
   -- The Abyss - Deepest darkness (improved background separation)
   abyss = {
-    void = '#0d0d14',
-    deep = '#1c1c28',
-    shadow = '#2d2d42',
+    void = '#0d0d14',      -- Main background
+    deep = '#1a1a24',      -- Secondary background (better contrast)
+    shadow = '#2a2a3a',    -- Highlighted background (improved separation)
+    border = '#3a3a4a',    -- Border color (better visibility)
   },
 
   -- The White Palace - Pure essence (enhanced text contrast)
   palace = {
-    soul = '#f0f0f8',
-    pale = '#d5d5e5',
-    ghost = '#b5b5d0',
-    silver = '#9898b0',
+    soul = '#e8e8f0',      -- Main text (slightly softer for reduced eye strain)
+    pale = '#c8c8d8',      -- Secondary text
+    ghost = '#a8a8c0',     -- Tertiary text
+    silver = '#888898',    -- Muted text
+    dim = '#686878',       -- Very dim text
   },
 
-  -- Soul and Dreams - Mystical blues (softer for dark environments)
+  -- Soul and Dreams - Mystical blues (optimized for readability)
   soul = {
-    bright = '#7bb3d9',
-    dream = '#6ba6df',
-    pale = '#5d93c4',
-    crystal = '#69a8cf',
-    essence = '#77b8db',
+    bright = '#7bb8e8',    -- Bright accent (increased saturation)
+    dream = '#6ba8df',     -- Dream-like blue
+    pale = '#5d93c4',      -- Pale soul
+    crystal = '#69a8cf',   -- Crystal blue
+    essence = '#77b8db',   -- Soul essence
+    deep = '#4d7fb4',      -- Deep soul (for better contrast)
   },
 
-  -- Greenpath - Life and nature (muted greens)
+  -- Greenpath - Life and nature (enhanced visibility)
   greenpath = {
-    lumafly = '#7dd6c0',
-    moss = '#52a390',
-    acid = '#459360',
-    vine = '#2d6b4f',
+    lumafly = '#7dd6c0',   -- Bright teal (strings)
+    moss = '#5db898',      -- Moss green (improved contrast)
+    acid = '#4a9d70',      -- Acid green
+    vine = '#3a7d5a',      -- Vine green (darker for contrast)
   },
 
-  -- City of Tears - Ancient gold (softer yellows)
+  -- City of Tears - Ancient gold (optimized yellows)
   city = {
-    geo = '#e6c547',
-    gold = '#d4b547',
-    pale_gold = '#c4a542',
-    brass = '#a8860b',
+    geo = '#e8c84f',       -- Bright geo (improved visibility)
+    gold = '#d4b547',      -- Gold
+    pale_gold = '#c4a542', -- Pale gold
+    brass = '#a8860b',     -- Brass
+    shine = '#f8d85f',     -- Shiny gold (for highlights)
   },
 
-  -- The Infection - Orange corruption (muted oranges)
+  -- The Infection - Orange corruption (enhanced warnings)
   infection = {
-    bright = '#e6945c',
-    glow = '#d6845c',
-    deep = '#bc7700',
-    radiance = '#d4b547',
+    bright = '#e89858',    -- Bright orange (better visibility)
+    glow = '#d88850',      -- Orange glow
+    deep = '#c87840',      -- Deep orange
+    radiance = '#e8b847',  -- Radiant gold-orange
   },
 
-  -- Combat - Reds of battle (softer reds)
+  -- Combat - Reds of battle (improved error visibility)
   combat = {
-    nail = '#d74c3c',
-    blood = '#b62828',
-    crimson = '#991e2c',
-    shade = '#660000',
+    nail = '#e85850',      -- Bright red (better visibility)
+    blood = '#c84040',     -- Blood red
+    crimson = '#a83838',   -- Crimson
+    shade = '#882828',     -- Shade red
   },
 
-  -- The Void - Purples of emptiness (muted purples)
+  -- The Void - Purples of emptiness (enhanced keywords)
   void = {
-    bright = '#8a7ccc',
-    deep = '#6a5acd',
-    grimm = '#8b1c47',
-    shadow = '#4a2c5a',
+    bright = '#9888d8',    -- Bright purple (better visibility)
+    deep = '#7868c8',      -- Deep purple
+    grimm = '#a84870',     -- Grimm purple-red
+    shadow = '#584878',    -- Shadow purple
   },
 
-  -- UI Elements (better neutrals)
+  -- UI Elements (improved neutrals)
   ui = {
-    mask = '#7a7a8f',
-    bench = '#5c4a35',
-    stone = '#5a5a6a',
-    metal = '#7a7a8a',
+    mask = '#888898',      -- Comment gray (better readability)
+    bench = '#685850',     -- Bench brown
+    stone = '#686878',     -- Stone gray
+    metal = '#888898',     -- Metal gray
   },
 }
 
