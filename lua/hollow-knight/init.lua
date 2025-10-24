@@ -38,6 +38,7 @@ local default_config = {
     tree = true, -- NvimTree & Neo-tree
     ui = true, -- WhichKey, Bufferline, Alpha, etc.
     git = true, -- GitSigns and git integration
+    fugitive = true, -- vim-fugitive Git integration
     barbecue = true,
     avante = true, -- Avante.nvim AI copilot
     indent = true, -- indent-blankline.nvim
@@ -123,6 +124,11 @@ function M.setup(opts)
   if opts.plugins.git and (has_plugin("gitsigns") or opts.plugins.git == "force") then
     local git_highlights = require("hollow-knight.groups.plugins.git").setup(colors)
     plugin_highlights = merge_highlights(plugin_highlights, git_highlights)
+  end
+
+  if opts.plugins.fugitive and (has_plugin("fugitive") or vim.fn.exists(":Git") == 2 or opts.plugins.fugitive == "force") then
+    local fugitive_highlights = require("hollow-knight.groups.plugins.fugitive").setup(colors)
+    plugin_highlights = merge_highlights(plugin_highlights, fugitive_highlights)
   end
 
   if opts.plugins.barbecue and (has_plugin("barbecue") or opts.plugins.barbecue == "force") then
