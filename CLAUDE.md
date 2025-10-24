@@ -75,7 +75,7 @@ The theme includes specific highlights for:
 - **File explorers**: Neo-tree, NvimTree (with transparency support)
 - **Fuzzy finders**: Telescope (with transparency support)
 - **LSP**: Diagnostics, references, semantic highlighting
-- **Git**: GitSigns, diff colors
+- **Git**: GitSigns, vim-fugitive, diff colors
 - **UI plugins**: WhichKey, Bufferline, notifications
 - **Syntax**: Treesitter and standard syntax groups
 
@@ -91,6 +91,7 @@ require('hollow-knight').setup({
     tree = true,      -- NvimTree & Neo-tree
     ui = true,        -- WhichKey, Bufferline, Alpha, etc.
     git = true,       -- GitSigns and git integration
+    fugitive = true,  -- vim-fugitive Git integration
     barbecue = true,  -- Barbecue.nvim winbar
     terminal = true,  -- Terminal colors
   }
