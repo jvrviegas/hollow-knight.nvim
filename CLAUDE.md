@@ -10,8 +10,10 @@ This is a Neovim colorscheme plugin inspired by the atmospheric world of Hollow 
 
 The plugin follows a modular structure for better organization and maintainability:
 
-- **`colors/hollow-knight.lua`**: Standard colorscheme entry point that calls the main setup
-- **`lua/hollow-knight/init.lua`**: Main setup function with modular loading system
+- **`colors/hollow-knight.lua`**: Standard colorscheme entry point that loads/applies the theme
+- **`lua/hollow-knight/init.lua`**: Main module with two key functions:
+  - `setup(opts)`: Stores user configuration without applying the theme
+  - `load()`: Applies the theme using stored configuration
 - **`lua/hollow-knight/colors.lua`**: Color palette definitions, utilities, and variants
 - **`lua/hollow-knight/groups/`**: Modular highlight group definitions
   - **`core.lua`**: Core editor highlights (Normal, Visual, etc.)
@@ -83,6 +85,7 @@ The theme includes specific highlights for:
 
 ### Modern Configuration (Recommended)
 ```lua
+-- Configure the theme (stores settings without applying)
 require('hollow-knight').setup({
   transparent = false,
   background_clear = {'telescope', 'neo-tree'},
@@ -96,7 +99,12 @@ require('hollow-knight').setup({
     terminal = true,  -- Terminal colors
   }
 })
+
+-- Apply the theme
+vim.cmd.colorscheme 'hollow-knight'
 ```
+
+**Note**: The `setup()` function only stores configuration - it does NOT apply the theme. You must explicitly set the colorscheme using `:colorscheme hollow-knight` or `vim.cmd.colorscheme 'hollow-knight'`.
 
 ### Legacy Configuration (Still Supported)
 Users can also configure transparency through global variables:

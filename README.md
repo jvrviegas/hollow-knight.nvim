@@ -93,7 +93,7 @@ Add to your `init.lua`:
 
 ## ⚙️ Configuration
 
-### Basic Setup
+### Modern Setup (Recommended)
 
 ```lua
 {
@@ -101,18 +101,25 @@ Add to your `init.lua`:
   name = 'hollow-knight',
   priority = 1000,
   config = function()
-    -- Optional: Enable transparency
-    vim.g.hollow_knight_transparent = true
+    -- Configure the theme (stores settings without applying)
+    require('hollow-knight').setup({
+      transparent = false,
+      background_clear = {'telescope', 'neo-tree'},
+      plugins = {
+        telescope = true,
+        tree = true,      -- NvimTree & Neo-tree
+        ui = true,        -- WhichKey, Bufferline, Alpha, etc.
+        git = true,       -- GitSigns and git integration
+        fugitive = true,  -- vim-fugitive Git integration
+        barbecue = true,  -- Barbecue.nvim winbar
+        avante = true,    -- Avante.nvim AI copilot
+        indent = true,    -- indent-blankline.nvim
+        rest = true,      -- rest.nvim HTTP client
+        terminal = true,  -- Terminal colors
+      }
+    })
 
-    -- Optional: Clear backgrounds for specific plugins
-    vim.g.hollow_knight_background_clear = {
-      'telescope',
-      'neo-tree',
-      'float_win',
-      'notify',
-      'noice'
-    }
-
+    -- Apply the theme
     vim.cmd.colorscheme 'hollow-knight'
   end,
 }
@@ -123,17 +130,56 @@ Add to your `init.lua`:
 Control which elements have transparent backgrounds:
 
 ```lua
+require('hollow-knight').setup({
+  -- Enable global transparency for all elements
+  transparent = true,
+
+  -- Or selectively clear backgrounds for specific plugins
+  transparent = false,
+  background_clear = {
+    'telescope',    -- Telescope windows
+    'neo-tree',     -- File explorer
+    'float_win',    -- Floating windows
+    'notify',       -- Notification popups
+    'noice',        -- Noice command line
+  },
+})
+
+vim.cmd.colorscheme 'hollow-knight'
+```
+
+### Plugin Control
+
+Enable or disable specific plugin highlights:
+
+```lua
+require('hollow-knight').setup({
+  plugins = {
+    telescope = true,      -- Enable Telescope highlights
+    tree = false,          -- Disable tree plugin highlights
+    barbecue = 'force',    -- Force load even if plugin not detected
+  }
+})
+```
+
+### Legacy Configuration (Still Supported)
+
+You can also use global variables for backwards compatibility:
+
+```lua
 -- Global transparency
 vim.g.hollow_knight_transparent = true
 
 -- Selective transparency
 vim.g.hollow_knight_background_clear = {
-  'telescope',    -- Telescope windows
-  'neo-tree',     -- File explorer
-  'float_win',    -- Floating windows
-  'notify',       -- Notification popups
-  'noice',        -- Noice command line
+  'telescope',
+  'neo-tree',
+  'float_win',
+  'notify',
+  'noice',
 }
+
+vim.cmd.colorscheme 'hollow-knight'
 ```
 
 ### Using Different Variants

@@ -52,19 +52,20 @@ local function get_colors()
   return require("hollow-knight.colors")
 end
 
--- Main setup function
+-- Main setup function - stores configuration without applying theme
 function M.setup(opts)
-  -- If opts provided, store it as user config for future colorscheme switches
+  -- Store user configuration for when colorscheme is loaded
   if opts and next(opts) then
-    user_config = opts
+    user_config = vim.tbl_deep_extend("force", default_config, opts)
+  else
+    user_config = default_config
   end
+end
 
-  -- Use stored user config if no opts provided and user_config exists
-  if not opts and user_config then
-    opts = user_config
-  end
-
-  opts = vim.tbl_deep_extend("force", default_config, opts or {})
+-- Load and apply the colorscheme
+function M.load()
+  -- Use stored user config, or default if setup() was never called
+  local opts = user_config or default_config
 
   -- Clear existing highlights
   vim.cmd("highlight clear")
@@ -166,11 +167,6 @@ function M.setup(opts)
     local terminal_module = require("hollow-knight.groups.plugins.terminal")
     terminal_module.set_terminal_colors(colors)
   end
-end
-
--- Legacy compatibility function
-function M.load()
-  M.setup()
 end
 
 -- Export color utilities for advanced users
