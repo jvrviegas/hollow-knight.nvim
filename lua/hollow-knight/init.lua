@@ -4,8 +4,8 @@
 
 local M = {}
 
--- Track if setup has been called with custom configuration
-local has_custom_setup = false
+-- Store user configuration for reuse when switching colorschemes
+local user_config = nil
 
 -- Helper function to set highlight groups
 local function hi(group, opts)
@@ -54,14 +54,14 @@ end
 
 -- Main setup function
 function M.setup(opts)
-  -- If opts is provided, mark that custom setup has been called
+  -- If opts provided, store it as user config for future colorscheme switches
   if opts and next(opts) then
-    has_custom_setup = true
+    user_config = opts
   end
 
-  -- If no opts provided and custom setup was already called, skip auto-init
-  if not opts and has_custom_setup then
-    return
+  -- Use stored user config if no opts provided and user_config exists
+  if not opts and user_config then
+    opts = user_config
   end
 
   opts = vim.tbl_deep_extend("force", default_config, opts or {})
